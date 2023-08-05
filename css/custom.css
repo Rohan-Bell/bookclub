@@ -1,0 +1,24 @@
+.container 
+{
+    margin-top:30px;
+}
+
+.nav-link {
+    margin-left: 20px;
+}
+
+.form-group {
+    /*padding-top:10px;*/
+}
+
+h1, h2, h3, h4 {
+    margin-bottom:1em;
+}
+
+h1, h2 { font-weight:600; }
+
+.sideblock {
+    margin-left:10px;
+    padding:10px;
+    border:solid 1px grey;
+}

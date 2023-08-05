@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/www/css/style.css">
+  <link rel="stylesheet" href="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="lib/jquery/jquery-1.12.4.min.js"></script>
+  <script src="lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="components/loader.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  <script src='lib/new_ajax_helper.js'></script>
+  <script src='lib/custom.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/pbkdf2.js"></script>
+  <!-- Keep only one version of Mapbox GL CSS and JS -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+</head>
+
+<body data-gr-c-s-loaded="true" class="ui-mobile-viewport ui-overlay-a" data-feedly-mini="yes">
+
+  <!-- LOGIN PAGE -->
+  <div data-role="page" id="loginpage">
+    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+      <h1>Book Lovers</h1>
+    </div><!-- /header -->
+    <div role="main" class="ui-content"><!-- /main section -->
+      <h2>Login</h2>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br>
+      <input type="button" value="Submit" onClick="login();">
+      <p>admin@admin, password is password</p>
+      <p>clubadmin@clubadmin, password is password</p>
+      <p>member@member, password is password</p>
+    </div>
+  </div>
+  <!-- END LOGIN PAGE -->
+
+  <!-- MENU PAGE -->
+  <div data-role="page" id="menupage">
+    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+      <h1>Book Lovers</h1>
+    </div><!-- /header -->
+    <div role="main" class="ui-content"><!-- /main section -->
+    <h2>Menu</h2>
+      <p><a href="#meetingspage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Book Club Meetings</a></p>
+      <p><a href="#findbookpage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Find a Book</a></p>
+      <p><a href="#clubspage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Clubs</a></p>
+    </div>
+  </div>
+  <!-- END MENU PAGE -->
+
+  <!-- MEETINGS PAGE --> <!-- user can see upcoming book meetings and the proposed book -->
+  <div data-role="page" id="meetingspage">
+    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+      <h1>Book Lovers</h1>
+    </div><!-- /header -->
+    <div role="main" class="ui-content"><!-- /main section -->
+      <h2>Book Club Meetings</h2>
+      <div id="meetings"></div> <!-- div to insert book club meetings -->
+      <p><a href="#menupage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Menu</a></p>
+    </div>
+  </div>
+  <!-- END MEETINGS PAGE -->
+
+  <!-- FIND BOOK PAGE --> <!-- user finds a book and adds it to the book list -->
+  
+  <div data-role="page" id="findbookpage">
+    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+      <h1>Book Lovers</h1>
+    </div><!-- /header -->
+    <div role="main" class="ui-content"><!-- /main section -->
+      <h2>Find a Book</h2>
+      <label for ="book">Search:</label>
+      <input type="text" id="booksearch" name="booksearch"><br> 
+      <div id="advancedOptions" style="display: none;">
+      <label for="book">Book Title:</label>
+      <input type="text" id="booktitle" name="booktitle"><br> 
+      <label for="book">Book Author: </label>
+      <input type="text" id="bookauthor" name="bookauthor"><br>
+      <label for="book">Genre: </label>
+      <input type="text" id="booksubject" name="booksubject"><br>
+      </div>
+      <button onclick="toggleAdvancedOptions()">Advanced Options</button>
+      <input type="button" name="findbook" value="Find Book" onclick="findbook()"> <!-- search the API -->
+      
+      <p><a href="#menupage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Menu</a></p>
+      <div id = "bookdata"></div>
+      
+    </div>
+  </div>
+  <!-- END FIND BOOK -->
+
+
+
+
+  <!-- BOOK LIST PAGE --> <!-- user can see the clubs book list and votes on it -->
+  <div data-role="page" id="booklistpage">
+    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+      <h1>Book Lovers App</h1>
+    </div><!-- /header -->
+    <div role="main" class="ui-content"><!-- /main section -->
+      <h2>Book Club Book List</h2>
+      <div id="booklist"></div>
+      <p><a href="#menupage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Menu</a></p>
+    </div>
+
+  </div>
+<div id="tabContainer">
+  <div id="tab" onclick="showBookAddedMessage()"></div>
+  <div id="bookAddedMessage">Book Added</div>
+</div>
+  
+  <!-- END FIND BOOK -->
+
+  <!-- Clubs Page -->
+  <div data-role="page" id="clubspage">
+    <div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+      <h1>Book Lovers App</h1>
+    </div><!-- /header -->
+    <div role="main" class="ui-content"><!-- /main section -->
+      <div id="clubs-tabs-container">
+        <div id="clubs-tabs">
+          <button class="active" onclick="showTab('for-you')">For You</button>
+          <button onclick="showTab('your-groups')">Your Groups</button>
+          <button onclick="showTab('events')">Events</button>
+          <button onclick="showTab('find-group')">Find Group</button>
+        </div>
+      </div>
+      <div id="clubs-container">
+        <!-- Clubs content will be dynamically loaded here based on the selected tab -->
+        <div id="scrollable-container" style="background-color: #bdaa7d; height: 300px; overflow-y: auto;">
+  <!-- Container for the events -->
+  <div id="events-container" style="display: flex; flex-direction: column; align-items: center; padding: 10px;">
+    <!-- Events will be appended here -->
+  </div>
+</div>
+      </div>
+      <p><a href="#menupage" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Menu</a></p>
+    </div>
+
+  </div>
+  <!-- END Clubs PAGE -->
+
+
+  <script src='lib/new_ajax_helper.js'></script>
+  <script src='lib/custom.js'></script>
+</body>
+</html>
+

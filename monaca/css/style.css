@@ -1,0 +1,318 @@
+/* Reset some default styles */
+body, h1, h2, h3, h4, p, ul, li {
+    margin: 0;
+    padding: 0;
+    color: #3d2814;
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+  
+  /* Page styles */
+  body {
+    background-color: #6b0b1e;
+    font-family: 'Libre Baskerville', serif;
+    color: #333333;
+    font-weight: 500;
+  }
+  
+  /* Header styles */
+  .ui-header {
+    background-color: #6c0b1e;
+    color: #f8f8f8;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .ui-header h1 {
+    font-size: 24px;
+  }
+  
+  /* Main content styles */
+  .ui-content {
+    margin: 20px;
+    background-color: #f5efd6; /* Change the background color of the application */
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+      background-color: transparent;
+  }
+  
+  
+  
+  .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+      background-color: #f5efd6;
+      border-color: #bbb;
+    color: #1d0f00; /* Darker text color for higher contrast */
+    text-shadow: none; /* Remove text shadow */
+    line-height: 1.5; /* Increase line-height for better text separation */
+    font-family: 'Libre Baskerville', serif;
+  }
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #BDAA7D;
+    color: #333333;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background-color: #8c7352;
+    color: #f8f8f8;
+  }
+  
+  /* Book result styles */
+  .BookResult {
+    border: 1px solid #333333;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #6c0b1e; /* Each book result will have a maroon background */
+  }
+  
+  
+  .BookResult h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #f8f8f8;
+  }
+  
+  .BookResult h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #f8f8f8;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+  
+      border: 10px solid #654231; /* Border color */
+    box-shadow: 0 0 0 5px #edd2a4
+  }
+  
+  #bookdata {
+    margin-top: 20px;
+  }
+  /* Header styles */
+  #loginpage .ui-header {
+    background-color: #7c5340;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  #loginpage .ui-header h1 {
+    font-size: 20px;
+    color: #f8f8f8;
+    text-shadow: none; /* Remove text shadow */
+    font-weight: 1200;
+  }
+  
+  #findbookpage .ui-header {
+    background-color: #7c5340;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  #menupage .ui-header {
+    background-color: #7c5340;
+    text-align: center;
+    padding: 5px;
+  }
+  #clubspage .ui-header {
+    background-color: #7c5340;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  #findbookpage .ui-header h1 {
+    font-size: 20px;
+    color: #f8f8f8;
+    text-shadow: none; /* Remove text shadow */
+    font-weight: 1200;
+  }
+  #menupage .ui-header h1 {
+    font-size: 20px;
+    color: #f8f8f8;
+    text-shadow: none; /* Remove text shadow */
+    font-weight: 1200;
+  }
+  #clubspage .ui-header h1 {
+    font-size: 20px;
+    color: #f8f8f8;
+    text-shadow: none; /* Remove text shadow */
+    font-weight: 1200;
+  }
+  
+  
+  
+    /* Add this in your index.html inside <head> */
+    .ui-popup-screen {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+      .ui-popup {
+      z-index: 10000;
+    }
+  
+  #addBookPopup div[data-role="header"] h1 {
+    color: #f8f8f8; /* Text color */
+    background-color: #7c5340; /* Background color of the div */
+  }
+  
+  #addBookPopup div[data-role="header"] {
+    background-color: #7c5340 !important;
+  }
+  #addBookPopup div[role="main"] {
+    border: 1px solid #6c0b1e; /* Border around the body area of the text */
+    background-color: #f5efd6; /* Background color of the body */
+  }
+  
+  #addBookPopup div[role="main"] p {
+    color: #333333; /* Text color */
+  }
+  
+  #addBookPopup a.ui-btn {
+    border: 1px solid #3d2814; /* Border for the button */
+    color: #3d2814; /* Text color of the button */
+  }
+  
+  #addBookPopup .ui-bar-a {
+    background-color: #f5efd6 !important;
+  }
+  #addBookPopup {
+    background-color: #f5efd6 !important; 
+  }
+  
+  
+  
+  #bookClubsPopup div[data-role="header"] h1 {
+    color: #f8f8f8; /* Text color */
+    background-color: #7c5340; /* Background color of the div */
+  }
+  
+  #bookClubsPopup div[data-role="header"] {
+    background-color: #7c5340 !important;
+  }
+  #bookClubsPopup div[role="main"] {
+    border: 1px solid #6c0b1e; /* Border around the body area of the text */
+    background-color: #f5efd6; /* Background color of the body */
+  }
+  
+  #bookClubsPopup div[role="main"] p {
+    color: #333333; /* Text color */
+  }
+  
+  #bookClubsPopup a.ui-btn {
+    border: 1px solid #3d2814; /* Border for the button */
+    color: #3d2814; /* Text color of the button */
+  }
+  
+  #bookClubsPopup .ui-bar-a {
+    background-color: #f5efd6 !important;
+  }
+  #bookClubsPopup {
+    background-color: #f5efd6 !important; 
+  }
+  #tabContainer {
+    position: fixed;
+    top: -40px; /* Tab starts off the top of the page */
+    right: 80px;
+  }
+  
+  #tab {
+    width: 100px;
+    height: 40px;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    transition: top 0.5s; /* Transition property for smooth animation */
+  }
+  
+  #bookAddedMessage {
+    width: 200px;
+    height: 40px;
+    background-color: #333333;
+    border: 6px solid #BDAA7D;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    top: -40px; /* Initially hide the "Book Added" message off the top of the page */
+    right: 20px;
+    transition: top 0.5s; /* Transition property for smooth animation */
+  }
+  /* Clubs CSS */
+      #clubs-tabs-container {
+        background-color: #f5efd6;
+        overflow-x: scroll;
+        white-space: nowrap;
+        position: relative;
+        padding: 5px 0;
+        margin-top: -15px;
+        width: 100%;
+      }
+      #clubs-tabs {
+        display: inline-flex;
+        align-items: center;
+        width: max-content;
+      }
+      #clubs-tabs button {
+        text-align: center;
+        border: none;
+        background-color: #6c0b1e;
+        font-size: 15px;
+        cursor: pointer;
+        color: #f8f8f8;
+        border-radius: 20px; 
+        display: inline-block;
+        width: fit-content;
+        padding: 8px 16px; 
+        margin: 5px; 
+      }
+      #clubs-tabs button:not(:last-child) {
+        margin-right: 10px;
+      }
+      #clubs-tabs button.active {
+        background-color: #704214;
+      }
+      #clubs-container {
+        padding: 5px;
+      }
+      .club-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+  
+          #clubs-tabs-container::-webkit-scrollbar {
+        display: none;
+      }
+  
+        .event-card h3,
+    .event-card p {
+      color: white;
+    }
+  
